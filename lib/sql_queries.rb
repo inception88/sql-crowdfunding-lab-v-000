@@ -46,7 +46,7 @@ end
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
   "SELECT users.name, SUM(pledges.amount)
   FROM users
-  INNER JOIN pledges
+  LEFT JOIN pledges
   ON users.id = pledges.user_id
   WHERE users.category = music
   GROUP BY users.name
